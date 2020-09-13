@@ -1,0 +1,21 @@
+main: net.kunmc.propromp.doppelganger.Main
+name: Doppelganger
+version: SNAPSHOT
+depend: [NickNamer]
+
+commands:
+   doppelganger:
+      description: DoppelGangerPlugin made by Propromp
+      aliases: [dg,doppel]
+      usage: /doppelganger help
+      permission: doppelganger.op
+      permission-message: You don't have permission to execute this command
+permissions:
+   doppelganger.op:
+      default: op
+   doppelganger.player:
+      default: true
+   doppelganger.*:
+      children:
+         doppelganger.op: true
+         doppelganger.player: true

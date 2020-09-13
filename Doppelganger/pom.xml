@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <properties>
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+  </properties>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.kunmc.propromp</groupId>
+  <artifactId>DoppelGanger</artifactId>
+  <version>0-SNAPSHOT</version>
+  <build>
+    <plugins>
+<plugin>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <version>3.0.0</version>
+      <executions>
+        <execution>
+          <id>make-assembly</id>
+          <phase>package</phase>
+          <goals>
+            <goal>single</goal>
+          </goals>
+        </execution>
+      </executions>
+      <configuration>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+        <archive>
+          <manifest>
+            <mainClass>net.kunmc.propromp.doppelganger.Main</mainClass>
+          </manifest>
+        </archive>
+      </configuration>
+    </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <targetPath>.</targetPath>
+        <filtering>true</filtering>
+        <directory>src/main/resources/</directory>
+      </resource>
+    </resources>
+  </build>
+  <repositories>
+    <repository>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+    </repository>
+    <repository>
+		<id>inventive-repo</id>
+		<url>https://repo.inventivetalent.org/content/groups/public/ </url>
+	</repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot-api</artifactId>
+      <version>1.15-R0.1-SNAPSHOT</version>
+    </dependency>
+<dependency>
+		<groupId>org.inventivetalent.nicknamer</groupId>
+		<artifactId>parent</artifactId>
+		<version>parent</version>
+		<scope>system</scope>
+		<systemPath>${basedir}\path\NickNamer_v3.18.5-SNAPSHOT.jar</systemPath>
+		<exclusions>
+			<exclusion>
+				<groupId>com.destroystokyo.paper</groupId>
+				<artifactId>paper-api</artifactId>
+			</exclusion>
+		</exclusions>
+</dependency>
+
+  </dependencies>
+</project>
