@@ -4,17 +4,17 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.inventivetalent.nicknamer.NickNamerPlugin;
-import org.inventivetalent.nicknamer.api.PluginNickManager;
+import org.inventivetalent.nicknamer.api.NickManager;
+import org.inventivetalent.nicknamer.api.NickNamerAPI;
 
 public class DoppelAPI {
 	public static void doppel(UUID uuid,String owner) {
-		PluginNickManager pnm = new PluginNickManager(NickNamerPlugin.instance);
+		NickManager pnm = NickNamerAPI.getNickManager();
 		pnm.setSkin(uuid, owner);
 		pnm.setNick(uuid, owner);
 	}
 	public static void clear(UUID uuid) {
-		PluginNickManager pnm = new PluginNickManager(NickNamerPlugin.instance);
+		NickManager pnm = NickNamerAPI.getNickManager();
 		pnm.removeNick(uuid);
 		pnm.removeSkin(uuid);
 	}

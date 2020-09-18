@@ -1,14 +1,9 @@
 package net.kunmc.propromp.doppelganger;
 
-import java.io.File;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.plugin.java.JavaPluginLoader;
-
 import net.kunmc.propromp.doppelganger.command.DPCommand;
 
 public class Main extends JavaPlugin {

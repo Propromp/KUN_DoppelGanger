@@ -1,18 +1,9 @@
 package net.kunmc.propromp.doppelganger.command;
 
-import java.util.Collection;
 import java.util.UUID;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.inventivetalent.nicknamer.NickNamerPlugin;
-import org.inventivetalent.nicknamer.api.NickManager;
-import org.inventivetalent.nicknamer.api.NickNamerAPI;
-import org.inventivetalent.nicknamer.api.PluginNickManager;
-import org.inventivetalent.nicknamer.command.SkinCommands;
-
 import net.kunmc.propromp.doppelganger.api.DoppelAPI;
 
 public class DPCommand {
