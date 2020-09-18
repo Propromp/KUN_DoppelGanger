@@ -13,6 +13,8 @@ import org.inventivetalent.nicknamer.api.NickNamerAPI;
 import org.inventivetalent.nicknamer.api.PluginNickManager;
 import org.inventivetalent.nicknamer.command.SkinCommands;
 
+import net.kunmc.propromp.doppelganger.api.DoppelAPI;
+
 public class DPCommand {
 
 	public static boolean command(Player player,Command cmd,String commandLabel,String[] args) {
@@ -32,36 +34,12 @@ public class DPCommand {
 
 	private static void exec(Player player, Command cmd, String commandLabel, String[] args) {
 		player.sendMessage("変更中");
-		Player[] players = new Player[Bukkit.getOnlinePlayers().size()];
-		players = Bukkit.getOnlinePlayers().toArray(players);
-		System.out.println(Bukkit.getOnlinePlayers().size());
-		System.out.println(players.length);
-		for(int i = 0; i < players.length; i ++) {
-			doppel(players[i].getUniqueId(),args[1]);
-		}
+		DoppelAPI.doppelAll(args[1]);
 		player.sendMessage("[DoppelGanger]処理が完了しました。スキン、ニックネームの適用には時間が掛かる可能性があります。");
 	}
 	private static void clear(Player player,Command cmd,String commandLabel,String[] args) {
 		player.sendMessage("変更中");
-		Player[] players = new Player[Bukkit.getOnlinePlayers().size()];
-		players = Bukkit.getOnlinePlayers().toArray(players);
-		for(int i = 0; i < players.length; i ++) {
-			clear(players[i].getUniqueId());
-		}
+		DoppelAPI.clearAll();
 		player.sendMessage("[DoppelGanger]処理が完了しました。スキン、ニックネームの適用には時間が掛かる可能性があります。");
 	}
-	
-	
-	
-	public static void doppel(UUID uuid,String owner) {
-		PluginNickManager pnm = new PluginNickManager(NickNamerPlugin.instance);
-		pnm.setNick(uuid, owner);
-		pnm.setSkin(uuid, owner);
-	}
-	public static void clear(UUID uuid) {
-		PluginNickManager pnm = new PluginNickManager(NickNamerPlugin.instance);
-		pnm.removeNick(uuid);
-		pnm.removeSkin(uuid);
-	}
-
 }
